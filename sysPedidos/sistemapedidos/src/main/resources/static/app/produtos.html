@@ -64,7 +64,7 @@
     function preencher (id_produto, nome_produto){
         console.log(id_produto, nome_produto);
         document.getElementById("tx_id").value = id_produto;
-        document.getElementById("tx_nome").value = nome_produto;
+        document.getElementById("tx_nome").value = decodeURI (nome_produto);
     }
     function carregar(){
         var xhttp = new XMLHttpRequest();
@@ -74,7 +74,7 @@
             var conteudo ="<tr> <th>ID</th> <th>Nome</th> <th>Ações</th> </tr>";        
             for(var produto of dados){
                 conteudo += "<tr> <td>" + produto.id + " </td> <td>"+ produto.descricao + "</td>";
-                conteudo += "<td> <button type='button' onclick=preencher('"+ produto.id +"','"+ produto.descricao +"')>Alterar</button>  ";    
+                conteudo += "<td> <button type='button' onclick=preencher('"+ produto.id +"','"+ encodeURI (produto.descricao) +"')>Alterar</button>  ";    
                 conteudo += "<button type='button' onclick='excluir("+ produto.id +")'>Excluir</button></td></tr>";
             }
             document.getElementById("listagem").innerHTML = conteudo;
