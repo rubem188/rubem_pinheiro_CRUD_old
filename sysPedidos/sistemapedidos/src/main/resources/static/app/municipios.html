@@ -64,7 +64,7 @@
     function preencher (id_municipio, nome_municipio){
         console.log(id_municipio, nome_municipio);
         document.getElementById("tx_id").value = id_municipio;
-        document.getElementById("tx_nome").value = nome_municipio;
+        document.getElementById("tx_nome").value = decodeURI (nome_municipio);
     }
     function carregar(){
         var xhttp = new XMLHttpRequest();
@@ -74,7 +74,7 @@
             var conteudo ="<tr> <th>ID</th> <th>Nome</th> <th>Ações</th> </tr>";        
             for(var municipio of dados){
                 conteudo += "<tr> <td>" + municipio.id + " </td> <td>"+ municipio.nome + "</td>";
-                conteudo += "<td> <button type='button' onclick=preencher('"+ municipio.id +"','"+ municipio.nome +"')>Alterar</button>  ";    
+                conteudo += "<td> <button type='button' onclick=preencher('"+ municipio.id +"','"+ encodeURI (municipio.nome)+"')>Alterar</button>  ";    
                 conteudo += "<button type='button' onclick='excluir("+ municipio.id +")'>Excluir</button></td></tr>";
             }
             document.getElementById("listagem").innerHTML = conteudo;

@@ -75,7 +75,7 @@
             var conteudo ="<tr> <th>ID</th> <th>Nome</th> <th>Ações</th> </tr>";        
             for(var cliente of dados){
                 conteudo += "<tr> <td>" + cliente.id + " </td> <td>"+ cliente.nomerRazaoSocial + "</td>";
-                conteudo += "<td> <button type='button' onclick=preencher('"+ cliente.id +"','"+ cliente.nomerRazaoSocial +"')>Alterar</button>  ";    
+                conteudo += "<td> <button type='button' onclick=preencher('"+ cliente.id +"','"+ cliente.nomerRazaoSocia +"')>Alterar</button>  ";    
                 conteudo += "<button type='button' onclick='excluir("+ cliente.id +")'>Excluir</button></td></tr>";
             }
             document.getElementById("listagem").innerHTML = conteudo;
